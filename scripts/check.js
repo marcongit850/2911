@@ -96,7 +96,9 @@ if (!html.includes("Over the years, we've created magazines, apartment guides, m
 if (!html.includes("<h2 id=\"team-title\">Meet the Team</h2>")) fail("Team heading must be Meet the Team");
 if (!html.includes(">Contact Us</a>")) fail("A contact control must say Contact Us");
 if (!html.includes("Software • Technology • Innovation")) fail("Missing brand tagline");
-if (!html.includes("Marketing, media, and brand development")) fail("Missing hero line");
+if (!html.includes("Software, technology, and digital products.")) fail("Missing hero line");
+if (html.includes('id="contact-title"') || html.includes('class="contact-band"')) fail("Do not show a Contact Us section at the bottom");
+if (!html.includes('<footer id="contact"')) fail("Footer keeps the contact target");
 if (!html.includes("What We Do")) fail("Missing What We Do");
 if (!html.includes("Built on decades of experience")) fail("Missing background heading");
 if (!html.includes("Our work includes:")) fail("Missing What We Build intro");
