@@ -7,10 +7,10 @@ The company site for 2911 Studio: one page with the work, current projects, a lo
 ## Domains and Worker
 
 - Worker: `studio2911`
-- Intended public host, not attached: `2911studio.com`
-- workers.dev stays on so the preview can be opened before DNS changes.
+- Public hosts attached in Cloudflare, not in `wrangler.jsonc`: `2911studio.com` and `www.2911studio.com`
+- workers.dev stays on.
 - `wrangler.jsonc` has no routes and no custom domain.
-- There is no `/dash` path and no service binding to another Worker.
+- This Worker does not serve `/dash` and has no service binding. Zone routes send `2911studio.com/dash` and `2911studio.com/dash/*` to the separate `dashboard` Worker. The same paths on `whatshappeningnetwork.com` stay on that Worker.
 
 ## Data and images
 
@@ -26,7 +26,7 @@ The company site for 2911 Studio: one page with the work, current projects, a lo
 
 ## Secrets and env vars (names only)
 
-Secrets are not set in this repo:
+Secrets are not stored in this repo. On the live Worker they are set in Cloudflare:
 
 - `RESEND_API_KEY`
 - `CONTACT_EMAIL`
