@@ -1,0 +1,9 @@
+# Names only. Do not put secret values in this file.
+# Set them on the Worker with:
+#   npx wrangler secret put RESEND_API_KEY
+#   npx wrangler secret put CONTACT_EMAIL
+# RESEND_API_KEY is the Resend API key.
+# CONTACT_EMAIL is the inbox that receives the form.
+# The sender is Resend's shared onboarding address, so CONTACT_EMAIL has to be
+# the address on that Resend account until a domain is verified there.
+# Do not add a new Resend sending domain for this site.

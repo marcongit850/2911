@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://2911studio.com/sitemap.xml
