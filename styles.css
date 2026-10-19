@@ -60,7 +60,6 @@
   --line-strong: rgba(126, 246, 236, 0.72);
   --glass: rgba(10, 32, 42, 0.72);
   --glass-strong: rgba(8, 22, 30, 0.92);
-  --plate: #f4f7f6;
   --display: "Montserrat", "Avenir Next", "Segoe UI", sans-serif;
   --sans: "Source Sans 3", "Segoe UI", sans-serif;
   --shadow: 0 22px 56px rgba(0, 0, 0, 0.38);
@@ -620,11 +619,8 @@ textarea {
   display: grid;
   place-items: center;
   min-height: 3.6rem;
-  padding: 0.4rem 0.5rem;
-  border-radius: 10px;
-  background:
-    radial-gradient(180px 70px at 50% 0%, rgba(20, 200, 188, 0.16), transparent 70%),
-    var(--plate);
+  padding: 0.35rem 0.4rem;
+  background: transparent;
 }
 
 .project-logo {

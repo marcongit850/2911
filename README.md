@@ -38,7 +38,7 @@ Wrangler prints a local URL. Open that URL.
 
 ## Deploy
 
-The Cloudflare Worker name is `studio2911`. `wrangler.jsonc` serves these static files and runs `POST /api/contact`. Do not add a custom domain in that file.
+The Cloudflare Worker name is `studio2911`. `wrangler.jsonc` serves these static files and runs `POST /api/contact`. Do not add a custom domain or route in that file. `2911studio.com` and `www.2911studio.com` are attached to `studio2911` in Cloudflare. `/dash` is a zone route to the separate `dashboard` Worker, not a page in this repo.
 
 ```bash
 npx wrangler deploy
@@ -55,13 +55,13 @@ Contact buttons in the header and footer open the contact form. There is no cont
 - `RESEND_API_KEY`
 - `CONTACT_EMAIL`
 
-Set them with `npx wrangler secret put`. Do not commit the values. They are unset on purpose in this repo. If either one is missing, the form says the message could not be sent.
+Set them with `npx wrangler secret put`. Do not commit the values. On the live `studio2911` Worker both secrets are set in Cloudflare. If either one is missing, the form says the message could not be sent.
 
 The From address is Resend's shared onboarding sender. Do not add a new Resend sending domain. That sender can deliver only to the address on the Resend account, so `CONTACT_EMAIL` has to be that address until a domain is verified in Resend.
 
 ## Left for a decision
 
-- `2911studio.com` is not attached. Add it in the Cloudflare dashboard only after the preview looks right. Do not change DNS from this repo.
+- The placeholder Worker named `2911` is still in the account. Its hostnames were detached. It was not deleted.
 - The previous hero film is not on this site. It opens on the previous company name.
 - The look-back section keeps its heading and paragraph. The collage of magazines, a truck, and mugs is not included.
-- The password-gated team dashboard is not part of this site.
+- Team HQ is not in this repo. `2911studio.com/dash` and `2911studio.com/dash/*` are routes to the `dashboard` Worker. The same paths on `whatshappeningnetwork.com` stay in place. The Dashboard repo's `wrangler.jsonc` still lists only the whatshappeningnetwork.com routes, so the next deploy of that repo should add the 2911studio.com patterns or those routes will be removed.
