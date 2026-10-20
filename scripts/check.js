@@ -173,8 +173,16 @@ if (!sitemap.includes("<loc>https://2911studio.com/</loc>")) fail("Sitemap loc")
 if (!readFileSync("robots.txt", "utf8").includes("Sitemap: https://2911studio.com/sitemap.xml")) fail("robots.txt sitemap");
 if (!missing.includes('href="/"')) fail("404 page needs a link home");
 
+for (const page of [html, missing]) {
+  for (const icon of ["/favicon.ico", "/favicon.svg", "/favicon.png", "/favicon-32.png", "/favicon-16.png", "/apple-touch-icon.png"]) {
+    if (!page.includes(`href="${icon}"`)) fail(`Missing icon link ${icon}`);
+  }
+}
 for (const icon of [
+  "favicon.ico",
   "favicon.png",
+  "favicon-32.png",
+  "favicon-16.png",
   "favicon.svg",
   "apple-touch-icon.png",
   "fonts/montserrat-latin-700-normal.woff2",
