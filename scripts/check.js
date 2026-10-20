@@ -91,9 +91,12 @@ for (const id of ["work", "approach", "featured", "projects", "about", "team", "
 if (!/<h1\b/i.test(html)) fail("Missing h1");
 if (!html.includes('src="/team.js"')) fail("Home page must load team.js");
 if (!renderer.includes('fetch("/data/team.json")')) fail("team.js must read data/team.json");
-if (!html.includes("A Look Back at What We Built")) fail("Missing look-back heading");
-if (!html.includes("Over the years, we've created magazines, apartment guides, maps, coupon publications, mobile advertising programs, and branded promotional products for businesses and organizations across a wide range of markets.")) {
+if (!html.includes("A Legacy of Ideas Brought to Life")) fail("Missing look-back heading");
+if (!html.includes("Over the years, we've transformed ideas into successful businesses, products, publications, and platforms.")) {
   fail("Look-back text changed");
+}
+if (!html.includes("We don't just create ideas. We build them, grow them, and turn them into opportunities.")) {
+  fail("Missing look-back closing line");
 }
 if (!html.includes("<h2 id=\"team-title\">Meet the Team</h2>")) fail("Team heading must be Meet the Team");
 if (!html.includes(">Contact Us</a>")) fail("A contact control must say Contact Us");
