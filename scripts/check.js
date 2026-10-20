@@ -98,9 +98,11 @@ if (!html.includes("Over the years, we've created magazines, apartment guides, m
 if (!html.includes("<h2 id=\"team-title\">Meet the Team</h2>")) fail("Team heading must be Meet the Team");
 if (!html.includes(">Contact Us</a>")) fail("A contact control must say Contact Us");
 if (!html.includes("IDEAS • SOFTWARE • DIGITAL BRANDS")) fail("Missing hero eyebrow");
-if (!html.includes("2911 Studio creates software, digital platforms, and media brands that solve real problems, connect people, and create opportunity.")) {
+if (!html.includes("2911 Studio transforms ideas into innovative software, financial applications, digital platforms, and media brands. Combining technology, creativity, and decades of business experience, we develop solutions that solve real-world challenges, connect people, and create new opportunities.")) {
   fail("Missing hero line");
 }
+if (html.includes(">People<")) fail("Do not label the team section People");
+if (html.includes('class="footer-site"') || missing.includes('class="footer-site"')) fail("Do not show the site name in the footer");
 if (/watch our story/i.test(html)) fail("Do not link a story video");
 if (html.includes('id="contact-title"') || html.includes('class="contact-band"')) fail("Do not show a Contact Us section at the bottom");
 if (!html.includes('<footer id="contact"')) fail("Footer keeps the contact target");
@@ -204,8 +206,10 @@ for (const icon of [
   "images/photos/cta-boardwalk-640.webp",
   "images/photos/cta-boardwalk-1280.webp",
   "images/photos/cta-boardwalk-1280.jpg",
-  "images/screens/conservation-1366.webp",
-  "images/screens/conservation-1366.jpg",
+  "images/screens/scenic-1366.webp",
+  "images/screens/scenic-1366.jpg",
+  "images/screens/scenic-900.webp",
+  "images/screens/scenic-900.jpg",
   "images/screens/savenello-780.webp",
   "images/screens/savenello-780.jpg",
   "images/screens/eating-820.webp",
