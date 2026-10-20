@@ -15,40 +15,44 @@
   <meta name="twitter:title" content="Page not found | 2911studio.com">
   <meta name="twitter:description" content="That page is not on 2911studio.com.">
   <meta name="theme-color" content="#07141c">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="page-simple">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="/" aria-label="2911 Studio, home">
         <picture>
           <source type="image/webp" srcset="/images/logo-hero.webp 1x, /images/logo-hero-2x.webp 2x">
-          <img class="brand-logo" src="/images/logo-hero.png" srcset="/images/logo-hero.png 1x, /images/logo-hero-2x.png 2x" alt="" width="448" height="128" decoding="async" fetchpriority="high">
+          <img class="brand-logo" src="/images/logo-hero.png" srcset="/images/logo-hero.png 1x, /images/logo-hero-2x.png 2x" alt="" width="448" height="128" decoding="async">
         </picture>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="nav" aria-label="On this page">
-        <a href="/#work">Work</a>
-        <a href="/#projects">Projects</a>
-        <a href="/#team">Team</a>
-        <a class="nav-contact btn btn-primary" href="/#contact">Contact Us</a>
+        <a href="/#featured">Work</a>
+        <a href="/#work">What We Do</a>
+        <a href="/#approach">Our Approach</a>
+        <a href="/#about">About</a>
+        <a class="nav-contact btn btn-outline" href="/#contact">Let's Talk <span class="arrow" aria-hidden="true">→</span></a>
       </nav>
-      <a class="btn btn-primary header-cta" href="/#contact">Contact Us</a>
+      <a class="btn btn-outline header-cta" href="/#contact">Let's Talk <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </header>
   <main id="main" class="missing">
     <div class="wrap">
-      <p class="pill"><span class="pill-dot" aria-hidden="true"></span> 404</p>
+      <p class="eyebrow">404</p>
       <h1>That page is not here.</h1>
       <p class="lede">The page you requested is not on this site.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="/">Back to the home page</a>
-        <a class="btn btn-ghost" href="/#contact">Contact Us</a>
+        <a class="btn btn-fill" href="/">Back to the home page</a>
+        <a class="btn btn-line" href="/#contact">Contact Us</a>
       </div>
     </div>
   </main>
@@ -60,8 +64,7 @@
           <img class="footer-logo" src="/images/logo-footer.png" srcset="/images/logo-footer.png 1x, /images/logo-footer-2x.png 2x" alt="" width="240" height="69" decoding="async">
         </picture>
       </a>
-      <p class="footer-site"><a href="/">2911studio.com</a></p>
-      <p class="footer-contact"><a class="btn btn-ghost" href="/#contact">Contact Us</a></p>
+      <p class="footer-contact"><a class="btn btn-outline" href="/#contact">Contact Us</a></p>
     </div>
   </footer>
   <script src="/site.js"></script>

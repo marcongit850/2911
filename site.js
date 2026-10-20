@@ -1,5 +1,14 @@
 document.documentElement.classList.remove("no-js");
 
+const header = document.querySelector(".site-header");
+if (header && !document.body.classList.contains("page-simple")) {
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
 

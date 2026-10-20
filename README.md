@@ -1,8 +1,8 @@
 # 2911 Studio
 
-Static company site for 2911 Studio. One page covers the work, the current projects, a look back, the team, and a contact form.
+Static company site for 2911 Studio. The homepage opens with the beach house hero, then what we do, our approach, featured work, current projects, a look back, the team, a closing band, and the footer. Contact buttons open the form.
 
-2911 Studio builds software, digital products, and media brands. The public tagline is Software, Technology, Innovation. The homepage keeps the current company facts, the current projects, and the team list.
+2911 Studio creates software, digital platforms, and media brands. The homepage eyebrow reads Ideas, Software, Digital Brands. The page keeps the current projects and the team list. There is no film link. The earlier hero film opens on the previous company name.
 
 The public site name is [2911studio.com](https://2911studio.com/). Titles, canonical URLs, and meta tags use that name. This repo does not attach the domain or change DNS. `wrangler.jsonc` has no custom domain and no route.
 
@@ -50,7 +50,7 @@ Cloudflare assigns the workers.dev hostname. That hostname is the preview. Leave
 
 ## Contact
 
-Contact buttons in the header and footer open the contact form. There is no contact section at the bottom of the page. The page does not show an email address. `POST /api/contact` sends the message through Resend. The Worker reads these secret names and no others:
+Let's Talk, Get In Touch, and Contact Us open the contact form. There is no contact section at the bottom of the page. The page does not show an email address. `POST /api/contact` sends the message through Resend. The Worker reads these secret names and no others:
 
 - `RESEND_API_KEY`
 - `CONTACT_EMAIL`
