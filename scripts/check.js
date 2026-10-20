@@ -41,10 +41,12 @@ if (!/<form\b[^>]*action="\/api\/contact"/i.test(html)) fail("Home page needs th
 if (/<form\b/i.test(missing)) fail("404 page must not include a form");
 if (!html.includes('id="contact-dialog"')) fail("Contact buttons need a form dialog");
 if (!html.includes("data-open-contact")) fail("Contact buttons must open the form");
-if (html.includes("look-back") && html.includes("<img")) {
-  const look = html.slice(html.indexOf("A Look Back at What We Built"), html.indexOf('id="projects"'));
-  if (/<img\b/i.test(look)) fail("Look back section must not include an image");
-}
+const aboutStart = html.indexOf('id="about"');
+const aboutEnd = aboutStart === -1 ? -1 : html.indexOf("</section>", aboutStart);
+if (aboutStart === -1 || aboutEnd === -1) fail("Missing look-back section");
+const aboutHtml = html.slice(aboutStart, aboutEnd);
+if (/<img\b/i.test(aboutHtml)) fail("Look back section must not include an image");
+if (/<a\b/i.test(aboutHtml)) fail("Look back section must not include a link");
 if (existsSync("images/look-back.png")) fail("Do not include the look-back collage");
 if (html.includes("whatshappening") || missing.includes("whatshappening")) fail("Old brand host is still in the page");
 if (/What's Happening/i.test(visible)) fail("Old brand name is still in the page");
@@ -83,7 +85,7 @@ for (const item of confidentialItems) {
   if (!item.includes(">Early-stage work under NDA<")) fail("Confidential cards should say Early-stage work under NDA");
 }
 
-for (const id of ["work", "projects", "team", "team-list", "contact", "background"]) {
+for (const id of ["work", "approach", "featured", "projects", "about", "team", "team-list", "contact"]) {
   if (!html.includes(`id="${id}"`)) fail(`Missing #${id}`);
 }
 if (!/<h1\b/i.test(html)) fail("Missing h1");
@@ -95,13 +97,34 @@ if (!html.includes("Over the years, we've created magazines, apartment guides, m
 }
 if (!html.includes("<h2 id=\"team-title\">Meet the Team</h2>")) fail("Team heading must be Meet the Team");
 if (!html.includes(">Contact Us</a>")) fail("A contact control must say Contact Us");
-if (!html.includes("Software • Technology • Innovation")) fail("Missing brand tagline");
-if (!html.includes("Software, technology, and digital products.")) fail("Missing hero line");
+if (!html.includes("IDEAS • SOFTWARE • DIGITAL BRANDS")) fail("Missing hero eyebrow");
+if (!html.includes("2911 Studio creates software, digital platforms, and media brands that solve real problems, connect people, and create opportunity.")) {
+  fail("Missing hero line");
+}
+if (/watch our story/i.test(html)) fail("Do not link a story video");
 if (html.includes('id="contact-title"') || html.includes('class="contact-band"')) fail("Do not show a Contact Us section at the bottom");
 if (!html.includes('<footer id="contact"')) fail("Footer keeps the contact target");
 if (!html.includes("What We Do")) fail("Missing What We Do");
-if (!html.includes("Built on decades of experience")) fail("Missing background heading");
-if (!html.includes("Our work includes:")) fail("Missing What We Build intro");
+if (!html.includes("Ideas. Technology.")) fail("Missing what we do headline");
+if (!html.includes("From Concept")) fail("Missing approach headline");
+if (!html.includes("Digital Properties")) fail("Missing featured headline");
+if (!html.includes("Have an idea?")) fail("Missing closing headline");
+if (!html.includes("Local roots.")) fail("Missing script line");
+if (!html.includes(">Let's Talk")) fail("Header needs Let's Talk");
+if (!html.includes(">Get In Touch")) fail("Closing band needs Get In Touch");
+for (const label of [
+  "Websites &amp; Digital Platforms",
+  "Software Development",
+  "Finance Applications",
+  "Media Brands &amp; Content",
+  "Marketing &amp; Brand Development",
+  "Partnerships &amp; New Ventures",
+  "Understand Your Goals",
+  "Create Smart Solutions",
+  "Launch and Grow",
+]) {
+  if (!html.includes(label)) fail(`Missing ${label}`);
+}
 
 const people = JSON.parse(readFileSync("data/team.json", "utf8"));
 if (!Array.isArray(people) || people.length !== 10) fail("data/team.json must list the team");
@@ -166,6 +189,27 @@ for (const icon of [
   "images/logo-hero.webp",
   "images/logo-footer.png",
   "images/logo-footer.webp",
+  "fonts/playfair-display-latin-500-normal.woff2",
+  "fonts/playfair-display-latin-500-italic.woff2",
+  "fonts/great-vibes-latin-400-normal.woff2",
+  "images/photos/hero-beach-640.webp",
+  "images/photos/hero-beach-960.webp",
+  "images/photos/hero-beach-1280.webp",
+  "images/photos/hero-beach-640.jpg",
+  "images/photos/hero-beach-960.jpg",
+  "images/photos/hero-beach-1280.jpg",
+  "images/photos/approach-beach-640.webp",
+  "images/photos/approach-beach-1280.webp",
+  "images/photos/approach-beach-1280.jpg",
+  "images/photos/cta-boardwalk-640.webp",
+  "images/photos/cta-boardwalk-1280.webp",
+  "images/photos/cta-boardwalk-1280.jpg",
+  "images/screens/conservation-1366.webp",
+  "images/screens/conservation-1366.jpg",
+  "images/screens/savenello-780.webp",
+  "images/screens/savenello-780.jpg",
+  "images/screens/eating-820.webp",
+  "images/screens/eating-820.jpg",
 ]) {
   if (!existsSync(icon)) fail(`Missing ${icon}`);
 }
