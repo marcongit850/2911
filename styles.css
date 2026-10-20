@@ -274,53 +274,24 @@ textarea {
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
+  display: block;
   margin-right: auto;
   min-width: 0;
   text-decoration: none;
 }
 
-.brand-line {
-  display: flex;
-  align-items: baseline;
-  gap: 0.42rem;
-  font-family: var(--display);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-}
-
-.brand-num,
-.brand-word {
-  font-size: 1.7rem;
-}
-
-.brand-num {
-  color: var(--teal);
-}
-
-.brand-word {
-  color: #fff;
-}
-
-.brand-rule {
+.brand-logo {
   display: block;
-  height: 2px;
-  width: 100%;
-  border-radius: 2px;
-  background: var(--teal);
+  width: auto;
+  height: 2.5rem;
+  max-width: min(100%, 14.5rem);
 }
 
-.brand-tag {
-  color: #d5dee4;
-  font-family: var(--display);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  line-height: 1.2;
-  white-space: nowrap;
+.footer-logo {
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+  max-width: 15rem;
 }
 
 .nav {
@@ -433,44 +404,13 @@ textarea {
 .mark-card {
   position: relative;
   width: min(100%, 28rem);
-  padding: 2.4rem 2rem 2.1rem;
-  text-align: center;
+  padding: 1.35rem 1.25rem 1.2rem;
 }
 
-.mark-num,
-.mark-word {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(3rem, 5vw, 4.4rem);
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-}
-
-.mark-num {
-  color: var(--teal);
-}
-
-.mark-word {
-  color: #fff;
-  margin-top: 0.15rem;
-}
-
-.mark-rule {
+.hero-logo {
   display: block;
-  height: 3px;
-  width: min(16rem, 80%);
-  margin: 1rem auto 0.9rem;
-  border-radius: 3px;
-  background: var(--teal);
-  box-shadow: 0 0 18px rgba(20, 200, 188, 0.65);
-}
-
-.mark-tag {
-  color: #d5dee4;
-  font-family: var(--display);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  width: 100%;
+  height: auto;
 }
 
 .section-intro {
@@ -1020,14 +960,8 @@ dialog::backdrop {
     width: min(1120px, calc(100% - 1.5rem));
   }
 
-  .brand-num,
-  .brand-word {
-    font-size: 1.35rem;
-  }
-
-  .brand-tag {
-    letter-spacing: 0.04em;
-    font-size: 0.68rem;
+  .brand-logo {
+    height: 2.05rem;
   }
 
   .hero h1 {
