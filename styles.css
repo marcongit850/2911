@@ -281,6 +281,7 @@ textarea {
   flex-shrink: 0;
   margin-right: auto;
   min-width: 0;
+  padding-block: 0.3rem;
   text-decoration: none;
 }
 
@@ -291,12 +292,9 @@ textarea {
 
 .brand-logo {
   display: block;
-  width: auto;
-  max-width: min(16rem, 54vw);
+  width: min(15.5rem, 52vw);
   height: auto;
-  max-height: calc(var(--header) - 1.45rem);
-  object-fit: contain;
-  object-position: left center;
+  max-height: none;
 }
 
 .footer-logo {
@@ -346,19 +344,14 @@ textarea {
 .hero {
   position: relative;
   padding: 3.4rem 0 3.6rem;
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: hidden;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(1.5rem, 3vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 3.5rem;
   align-items: center;
-}
-
-.hero-grid > * {
-  min-width: 0;
 }
 
 .hero h1 {
@@ -404,13 +397,9 @@ textarea {
 
 .hero-art {
   position: relative;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
   min-height: 22rem;
   display: grid;
   place-items: center;
-  overflow: visible;
 }
 
 .glow {
@@ -424,25 +413,14 @@ textarea {
 
 .mark-card {
   position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 28rem;
+  width: min(100%, 28rem);
   padding: 1.35rem 1.25rem 1.2rem;
-  overflow: visible;
-}
-
-.mark-card picture {
-  display: block;
-  line-height: 0;
-  max-width: 100%;
 }
 
 .hero-logo {
   display: block;
   width: 100%;
-  max-width: 100%;
   height: auto;
-  object-fit: contain;
 }
 
 .section-intro {
@@ -908,10 +886,6 @@ dialog::backdrop {
   .project-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .mark-card {
-    max-width: min(100%, 24rem);
-  }
 }
 
 @media (max-width: 900px) {
@@ -930,13 +904,7 @@ dialog::backdrop {
   }
 
   .hero-art {
-    min-height: auto;
-    margin-top: 1.75rem;
-  }
-
-  .mark-card {
-    max-width: min(100%, 22rem);
-    margin-inline: auto;
+    display: none;
   }
 
   .footer-inner,
@@ -1003,8 +971,7 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    max-width: min(13.5rem, 62vw);
-    max-height: calc(var(--header) - 1.25rem);
+    width: min(13.25rem, 58vw);
   }
 
   .hero h1 {
