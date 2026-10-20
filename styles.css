@@ -292,9 +292,11 @@ textarea {
 
 .brand-logo {
   display: block;
-  width: min(15.5rem, 52vw);
+  width: min(12.75rem, 50vw);
   height: auto;
-  max-height: none;
+  max-height: calc(var(--header) - 1.2rem);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-logo {
@@ -971,7 +973,8 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    width: min(13.25rem, 58vw);
+    width: min(11.5rem, 62vw);
+    max-height: calc(var(--header) - 1rem);
   }
 
   .hero h1 {
