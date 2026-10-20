@@ -162,6 +162,12 @@ for (const icon of [
   "images/south-walton-connect.png",
   "images/walton-power-lines.png",
   "images/confidential-project.png",
+  "images/logo-header.png",
+  "images/logo-header.webp",
+  "images/logo-hero.png",
+  "images/logo-hero.webp",
+  "images/logo-footer.png",
+  "images/logo-footer.webp",
 ]) {
   if (!existsSync(icon)) fail(`Missing ${icon}`);
 }
