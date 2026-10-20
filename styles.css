@@ -261,6 +261,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 20;
+  overflow: visible;
   background: rgba(7, 20, 28, 0.78);
   border-bottom: 1px solid rgba(20, 200, 188, 0.18);
   backdrop-filter: blur(18px);
@@ -274,17 +275,26 @@ textarea {
 }
 
 .brand {
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
   margin-right: auto;
   min-width: 0;
   text-decoration: none;
 }
 
+.brand picture {
+  display: block;
+  line-height: 0;
+}
+
 .brand-logo {
   display: block;
   width: auto;
-  height: 2.5rem;
-  max-width: min(100%, 14.5rem);
+  height: 2.875rem;
+  max-width: min(100%, 16.5rem);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-logo {
@@ -961,7 +971,8 @@ dialog::backdrop {
   }
 
   .brand-logo {
-    height: 2.05rem;
+    height: 2.5rem;
+    max-width: min(100%, 14.75rem);
   }
 
   .hero h1 {
